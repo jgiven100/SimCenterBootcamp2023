@@ -25,8 +25,26 @@ int main(int argc, char **argv) {
 
   float x1 = 0, x2 = 0;
 
-  printf("%.8f, %.8f\n", x1, x2);    
-  
+  double bb4ac = (b * b) - (4 * a * c);
+
+  if (bb4ac < 0) {
+    float x = -(b / (2 * a));
+
+    float imag = sqrt(-bb4ac) / (2 * a);
+
+    printf("%.8f + %8.fi,%.8f - %fi\n", x , imag, x , imag);
+  } else {
+
+    x1 = -(b / (2 * a)) - (sqrt(bb4ac) / (2 * a ));
+    x2 = -(b / (2 * a)) + (sqrt(bb4ac) / (2 * a ));
+
+    if (abs(x1 - x2) < 1e-12) {
+      printf("%.8f\n", x1);
+    } else {
+      printf("%.8f, %.8f\n", x1, x2);    
+    }
+  }
+ 
   return 0;
 }
 
