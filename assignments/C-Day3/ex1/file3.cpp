@@ -4,6 +4,9 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <iostream>
+
+using namespace std;
 
 int main(int argc, char **argv) {
 
@@ -20,8 +23,10 @@ int main(int argc, char **argv) {
   int i = 0;
   float float1, float2;
   int maxVectorSize = 100;
-  double *vector1 = (double *)malloc(maxVectorSize*sizeof(double));
-  double *vector2 = (double *)malloc(maxVectorSize*sizeof(double));  
+
+  double *vector1 = new double[maxVectorSize];
+  double *vector2 = new double[maxVectorSize];
+
   int vectorSize = 0;
   
   while (fscanf(filePtr,"%d, %f, %f\n", &i, &float1, &float2) != EOF) {
@@ -33,18 +38,21 @@ int main(int argc, char **argv) {
     if (vectorSize == maxVectorSize) {
       
       // create new arrys & copy contents
-      double *newVector1 = (double *)malloc(2*vectorSize*sizeof(double));
-      double *newVector2 = (double *)malloc(2*vectorSize*sizeof(double));
+      double *newVector1 = new double[2 * vectorSize];
+      double *newVector2 = new double[2 * vectorSize];
+
       for (int i=0; i<vectorSize; i++) {
 	newVector1[i]=vector1[i];
 	newVector2[i]=vector2[i];
       }
 
       // release old memory, set vectors to point to new ones and update max vector size
-      free(vector1);
-      free(vector2);
+      delete [] vector1;
+      delete [] vector2;
+
       vector1 = newVector1;
       vector2 = newVector2;
+
       maxVectorSize *= 2;
     }
   }
@@ -58,4 +66,9 @@ int main(int argc, char **argv) {
   fwrite(vector1, sizeof(double), vectorSize, filePtrB);
   fwrite(vector2, sizeof(double), vectorSize, filePtrB);    
   fclose(filePtrB);  
+
+  delete [] vector1;
+  delete [] vector2;
+
+  return 0;
 }
