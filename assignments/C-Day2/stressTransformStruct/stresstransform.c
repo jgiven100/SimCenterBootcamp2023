@@ -20,8 +20,8 @@ void StressTransform(STRESS s, STRESS *sp, double theta) {
 
 	// these next lines need to be adapted to work with the new header ...
 
-	*sigxp = sigx*cs*cs + sigy*sn*sn + 2.*tau*sn*cs;
-	*sigyp = sigx*sn*sn + sigy*cs*cs - 2.*tau*sn*cs;
-	*taup  = (sigy - sigx)*sn*cs + tau*(cs*cs - sn*sn);
+	sp->sigx = s.sigx*cs*cs + s.sigy*sn*sn + 2.*s.tau*sn*cs;
+	sp->sigy = s.sigx*sn*sn + s.sigy*cs*cs - 2.*s.tau*sn*cs;
+	sp->tau  = (s.sigy - s.sigx)*sn*cs + s.tau*(cs*cs - sn*sn);
 }
 

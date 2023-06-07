@@ -32,10 +32,24 @@ int main(int argc, char **argv) {
     vectorSize++;
 
     if (vectorSize == maxVectorSize) {
-      // some code needed here I think .. programming exercise
+      double *tmpVector1 = (double *)malloc(2 * vectorSize*sizeof(double));
+      double *tmpVector2 = (double *)malloc(2 * vectorSize*sizeof(double));
+
+      for (int j = 0; j < vectorSize; j++) {
+        tmpVector1[j] = vector1[j];
+        tmpVector2[j] = vector2[j];
+      }
+
+      free(vector1);
+      free(vector2);
+
+      vector1 = tmpVector1;
+      vector2 = tmpVector2;
+
+      maxVectorSize *= 2;
     }
   }
-  
+ 
   fclose(filePtr);
 
   //
@@ -44,7 +58,13 @@ int main(int argc, char **argv) {
   
   FILE *filePtrB = fopen(argv[2],"wb");
   
-  // some missing code to write vector1, followed by vector 2
+  fwrite(vector1, sizeof(double), vectorSize, filePtrB);
+  fwrite(vector2, sizeof(double), vectorSize, filePtrB);
   
   fclose(filePtrB);  
+
+  free(vector1);
+  free(vector2);
+
+  return 0;
 }
