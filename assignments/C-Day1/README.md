@@ -26,7 +26,7 @@ y = a * x * x + b * x + c
 ```
 ./transformStress sigmaX sigmaY sigmaXY [theta] 
 ```
-where `sigmaX`, `sigmaY`, and `sigmaXY` are the initial stress and `theta` is the rotation (in degrees). Inpute `theta` is option; if not included, stress rotation for every 10 degrees printed. 
+where `sigmaX`, `sigmaY`, and `sigmaXY` are the initial stress and `theta` is the rotation (in degrees). The `theta` input is optional; if not included, stress rotation printed for `0<=theta<360` with `delta_theta=10`. 
 
 
 ### Pi
@@ -34,4 +34,4 @@ where `sigmaX`, `sigmaY`, and `sigmaXY` are the initial stress and `theta` is th
 ```
 ./pi N
 ```
-where `n` is the number of steps
+where `N` is the number of steps
