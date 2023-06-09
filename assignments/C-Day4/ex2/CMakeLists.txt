@@ -11,5 +11,6 @@ include_directories(${PROJECT_SOURCE_DIR})
 
 add_executable(dotProduct scatterArray.c)
 target_link_libraries(dotProduct ${MPI_LIBRARIES})
+target_link_libraries(dotProduct m)
 #target_include(dotProduct ${MPI_INCLUDES})
 
