@@ -12,4 +12,6 @@ endif()
 
 add_executable(hello hello1.c)
 add_executable(normVector normVector.c)
+add_executable(normVector2 normVector2.c)
 target_link_libraries(normVector m)
+target_link_libraries(normVector2 m)
