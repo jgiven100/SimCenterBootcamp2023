@@ -1,6 +1,6 @@
 # Day 4 Assignments
 
-## Example 1
+## Example 1: Compute Pi
 
 ### Compile
 ```
@@ -14,7 +14,7 @@ make
 ```
 mpirun -n N ./pi
 ```
-where `N` is the number of processes and `M` is the size of the vector. Use
+where `N` is the number of processes. Use
 ```
 time mpirun -n N ./pi
 ```
@@ -23,7 +23,7 @@ to compare the run time for different values of `N`.
 > If on `Frontera`, start an `idev` session prior to running with `mpirun`. Or use `sbatch` with the provided `submit.sh`. 
 
 
-## Example 2
+## Example 2: Vector Norm
 
 ### Compile
 ```

@@ -1,6 +1,6 @@
 # Day 5 Assignments
 
-## Example 1
+## Example 1: Vector Norm
 
 ### Compile
 ```
